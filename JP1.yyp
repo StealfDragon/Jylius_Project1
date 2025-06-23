@@ -35,7 +35,9 @@
   },
   "name":"JP1",
   "resources":[
+    {"id":{"name":"Obj_Player","path":"objects/Obj_Player/Obj_Player.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"Sprt_Player","path":"sprites/Sprt_Player/Sprt_Player.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",

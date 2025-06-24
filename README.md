@@ -98,6 +98,5 @@ Design Specifications:
     
  
  Team Members and Tasks:
-  Andrew - Sprites, 
-  Cassian - Whip, 
-  
+  Andrew - Sprites, Player movement, Level design, 
+  Cassian - Whip, Enemies, 

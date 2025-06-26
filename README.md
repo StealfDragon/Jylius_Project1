@@ -101,5 +101,5 @@ Design Specifications:
     
  
  Team Members and Tasks:
-  Andrew - Sprites, Player movement, Level design, 
-  Cassian - Whip, Enemies, 
+  - Andrew - Sprites, Player movement, Level design, 
+  - Cassian - Whip, Enemies, 

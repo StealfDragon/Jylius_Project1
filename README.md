@@ -20,6 +20,7 @@ Design Specifications:
    - Shotgun
    - Cybernetic Arm
    - Pulse Cannon (allows for dodge-slide)
+   - Gravity augmentation
 
   Items
    - 1 health
@@ -56,6 +57,8 @@ Design Specifications:
    - Cybernetic mafiosos
    - Prison guards
    - Enforcement officers
+   - Escaped prisoners
+   - Carnivorous flora
  
  Stretch Goals:
   3-4 further levels, possibly with bosses

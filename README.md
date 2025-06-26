@@ -50,6 +50,7 @@ Design Specifications:
    - Languid Spellmaiden
    - Head of the mafia (final boss, giant head)
    - Demon horse (Final boss that happens after the first final boss, two endings, one where the player parries, and the other where the player kills the horse)
+
   5 Enemies
    - Not a slime (a slug)
    - Vampire to survive

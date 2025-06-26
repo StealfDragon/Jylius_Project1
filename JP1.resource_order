@@ -17,7 +17,10 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"Obj_common_enemy_parent","order":2,"path":"objects/Obj_common_enemy_parent/Obj_common_enemy_parent.yy",},
+    {"name":"Obj_prison_guard","order":3,"path":"objects/Obj_prison_guard/Obj_prison_guard.yy",},
     {"name":"Obj_wall","order":1,"path":"objects/Obj_wall/Obj_wall.yy",},
+    {"name":"Sprite4","order":3,"path":"sprites/Sprite4/Sprite4.yy",},
     {"name":"Sprt_player_idle","order":2,"path":"sprites/Sprt_player_idle/Sprt_player_idle.yy",},
     {"name":"Sprt_wall","order":1,"path":"sprites/Sprt_wall/Sprt_wall.yy",},
   ],

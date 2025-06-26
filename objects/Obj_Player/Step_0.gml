@@ -53,7 +53,8 @@ jumpKeyPressed = keyboard_check_pressed(vk_space);
         
     }   
 
-    y += yspd; 
+    //y += yspd;
+    y = floor(y + yspd); 
     
     
     

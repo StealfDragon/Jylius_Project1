@@ -9,3 +9,6 @@ gravScale = 1;
 grav = gravScale * 0.3;
 termVel = gravScale * 4.5;
 jumpSpd = -6 * gravScale;
+
+
+tilemap = layer_tilemap_get_id("colTiles");

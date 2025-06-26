@@ -9,11 +9,11 @@ jumpKeyPressed = keyboard_check_pressed(vk_space);
     
     //X Collision
     var _subPixel = .5;
-    if place_meeting(x + xspd, y, Obj_wall) {
+    if place_meeting(x + xspd, y, tilemap) {
         
         //move up to wall precisely
         var _pixelCheck = _subPixel * sign(xspd); // method gets positive/negative value of xspd, useful for future complicated player movement
-        while !place_meeting(x + _pixelCheck, y, Obj_wall) {
+        while !place_meeting(x + _pixelCheck, y, tilemap) {
             x += _pixelCheck;
         }
         
@@ -33,17 +33,17 @@ jumpKeyPressed = keyboard_check_pressed(vk_space);
     }
 
     //jump
-    if jumpKeyPressed && place_meeting(x, y+1, Obj_wall) {
+    if jumpKeyPressed && place_meeting(x, y+1, tilemap) {
         yspd = jumpSpd;
     }
 
     //Y collision
     var _subPixel = 0.5;
-    if place_meeting(x, y + yspd, Obj_wall) {
+    if place_meeting(x, y + yspd, tilemap) {
         
         //same approaching movement as before
         var _pixelCheck = _subPixel * sign(yspd);
-        while !place_meeting(x, y+_pixelCheck, Obj_wall) {
+        while !place_meeting(x, y+_pixelCheck, tilemap) {
             y += _pixelCheck;
         }
         

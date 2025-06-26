@@ -5,11 +5,11 @@ if yspd > termVel {
 }
 
 var _subPixel = 0.5;
-if place_meeting(x, y + yspd, Obj_wall) {
+if place_meeting(x, y + yspd, tilemap) {
     
     //same approaching movement as before
     //var _pixelCheck = _subPixel * sign(yspd);
-    //while !place_meeting(x, y+_pixelCheck, Obj_wall) {
+    //while !place_meeting(x, y+_pixelCheck, tilemap) {
         //y += _pixelCheck;
     //}
     
@@ -22,5 +22,5 @@ y = floor(y + yspd);
 
 
 //var horiz = clamp(targetX - x, -1, 1);
-//move_and_collide(horiz, y, Obj_wall);
+//move_and_collide(horiz, y, tilemap);
 x += clamp(targetX - x, -1, 1);

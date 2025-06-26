@@ -8,4 +8,4 @@ termVel = gravScale * 4.5;
 
 alarm[0] = 60;
 
-//add tilemap collision here
+tilemap = layer_tilemap_get_id("colTiles");

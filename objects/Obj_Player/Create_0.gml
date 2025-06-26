@@ -8,4 +8,4 @@ yspd = 0;
 gravScale = 1;
 grav = gravScale * 0.3;
 termVel = gravScale * 4.5;
-jumpSpd = -6;
+jumpSpd = -6 * gravScale;

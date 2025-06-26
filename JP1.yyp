@@ -38,6 +38,7 @@
     {"id":{"name":"Obj_Player","path":"objects/Obj_Player/Obj_Player.yy",},},
     {"id":{"name":"Obj_wall","path":"objects/Obj_wall/Obj_wall.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"Sprt_player_idle_cinematic","path":"sprites/Sprt_player_idle_cinematic/Sprt_player_idle_cinematic.yy",},},
     {"id":{"name":"Sprt_player_idle","path":"sprites/Sprt_player_idle/Sprt_player_idle.yy",},},
     {"id":{"name":"Sprt_wall","path":"sprites/Sprt_wall/Sprt_wall.yy",},},
   ],

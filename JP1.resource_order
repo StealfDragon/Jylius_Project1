@@ -24,6 +24,7 @@
     {"name":"Sprite5","order":1,"path":"sprites/Sprite5/Sprite5.yy",},
     {"name":"Sprite6","order":4,"path":"sprites/Sprite6/Sprite6.yy",},
     {"name":"Sprt_player_idle","order":2,"path":"sprites/Sprt_player_idle/Sprt_player_idle.yy",},
+    {"name":"Sprt_running_right","order":5,"path":"sprites/Sprt_running_right/Sprt_running_right.yy",},
     {"name":"Sprt_wall","order":1,"path":"sprites/Sprt_wall/Sprt_wall.yy",},
   ],
 }

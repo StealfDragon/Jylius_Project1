@@ -1,6 +1,6 @@
 //Moving
 moveDir = 0;
-moveSpd = 2;
+moveSpd = 3;
 xspd = 0;
 yspd = 0;
 
@@ -12,3 +12,5 @@ jumpSpd = -6 * gravScale;
 
 
 tilemap = layer_tilemap_get_id("colTiles");
+
+sprite_index = Sprt_running_right;

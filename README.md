@@ -22,6 +22,21 @@ Design Specifications:
    - Pulse Cannon (allows for dodge-slide)
    - Gravity augmentation
 
+  Arm Abilities:
+   - Parry
+   - Dodge
+   - Blast
+   - Gravity
+    - Pull enemies in
+    - Push enemies away
+    - Anti-grav?
+   - Damage Types?
+    - Holy?
+    - Cyber?
+    - Natural?
+   - Overcharge/Charge zones (downed power lines, flying car chargers, etc.)
+    - Overcharge might disable arm abilites
+
   Items
    - 1 health
    - 1 damage

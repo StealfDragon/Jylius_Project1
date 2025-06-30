@@ -7,10 +7,23 @@ jumpKeyPressed = keyboard_check_pressed(vk_space);
 //X Movement
     moveDir = rightKey-leftKey;
     xspd = moveSpd * moveDir;
+
+    if moveDir != 0 {
+        changeSprite(Sprt_running_right);
+    } else {
+        changeSprite(Sprt_player_idle)
+    }
     
     //X Collision
     var _subPixel = .5;
     if place_meeting(x + xspd, y, tilemap) {
+        
+        if (!place_meeting(x + xspd, y - stepHeight, tilemap)) {
+            while place_meeting(x + xspd, y  - 1, tilemap){
+                y -= 1;
+            }
+        } else {
+        
         
         //move up to wall precisely
         var _pixelCheck = _subPixel * sign(xspd); // method gets positive/negative value of xspd, useful for future complicated player movement
@@ -20,6 +33,7 @@ jumpKeyPressed = keyboard_check_pressed(vk_space);
         
         //stop horizontal movement
         xspd = 0;
+        }    
         
     }
     
@@ -56,6 +70,12 @@ jumpKeyPressed = keyboard_check_pressed(vk_space);
 
     //y += yspd;
     y = floor(y + yspd); 
+
+function changeSprite(spr) {
+        if sprite_index != spr {
+            sprite_index = spr;
+        } 
+}
     
     
     

@@ -11,7 +11,7 @@ termVel = gravScale * 4.5;
 jumpSpd = -6 * gravScale;
 
 //inclines
-stepHeight = 30;
+stepHeight = 10;
 
 
 tilemap = layer_tilemap_get_id("colTiles");

@@ -19,8 +19,8 @@ jumpKeyPressed = keyboard_check_pressed(vk_space);
     if place_meeting(x + xspd, y, tilemap) {
         
         if (!place_meeting(x + xspd, y - stepHeight, tilemap)) {
-            while place_meeting(x + xspd, y  - 1, tilemap){
-                y -= 1;
+            while place_meeting(x + xspd, y  - _subPixel, tilemap){
+                y -= _subPixel;
             }
         } else {
         

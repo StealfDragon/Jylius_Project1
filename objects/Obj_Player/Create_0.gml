@@ -1,6 +1,6 @@
 //Moving
 moveDir = 0;
-moveSpd = 3;
+moveSpd = 3.5;
 xspd = 0;
 yspd = 0;
 
@@ -9,8 +9,10 @@ gravScale = 1;
 grav = gravScale * 0.3;
 termVel = gravScale * 4.5;
 jumpSpd = -6 * gravScale;
+jumpHoldTimer = 0;
+
+//inclines
+stepHeight = 10;
 
 
 tilemap = layer_tilemap_get_id("colTiles");
-
-sprite_index = Sprt_running_right;

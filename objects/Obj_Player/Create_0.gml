@@ -9,6 +9,7 @@ gravScale = 1;
 grav = gravScale * 0.3;
 termVel = gravScale * 4.5;
 jumpSpd = -6 * gravScale;
+jumpHoldTimer = 0;
 
 //inclines
 stepHeight = 10;

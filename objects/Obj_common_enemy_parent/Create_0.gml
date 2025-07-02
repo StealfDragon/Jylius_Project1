@@ -1,20 +1,15 @@
 hp = 20;
-moveSpd = 2;
-aggroDist = 120;
-loseAggroDist = 140;
+moveSpd = 3.3;
+aggroDist = 250;
+loseAggroDist = aggroDist + 50;
 attackDist = 10;
 canPatrol = true;
+ignoreGrav = false;
 
 targetX = x;
-y -= 0.5; //might be leftover, check later
 
-gravScale = 1; //put into global variables object/script
-grav = gravScale * 0.3;
 yspd = 0;
-termVel = gravScale * 4.5;
 
-alarm[0] = 60;
-
-tilemap = layer_tilemap_get_id("colTiles"); //this too
+tilemap = layer_tilemap_get_id("colTiles");
 
 state = C_ENEMY_STATES.STATE_IDLE;

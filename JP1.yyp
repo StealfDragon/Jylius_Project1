@@ -42,7 +42,6 @@
     {"id":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},},
     {"id":{"name":"Obj_prison_guard","path":"objects/Obj_prison_guard/Obj_prison_guard.yy",},},
     {"id":{"name":"Obj_siren","path":"objects/Obj_siren/Obj_siren.yy",},},
-    {"id":{"name":"Obj_wall","path":"objects/Obj_wall/Obj_wall.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"Enumerators","path":"scripts/Enumerators/Enumerators.yy",},},
     {"id":{"name":"Global_vars","path":"scripts/Global_vars/Global_vars.yy",},},

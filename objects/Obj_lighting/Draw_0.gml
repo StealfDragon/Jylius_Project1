@@ -4,12 +4,17 @@ if surface_exists(light_surf) {
     
     with (Obj_light) {
         gpu_set_blendmode(bm_normal);
-        draw_sprite_ext(Sprt_simple_light, 0, x, y, 0.4, 0.4, 0, c_white, .7);
+        draw_sprite_ext(Sprt_simple_light, 0, x, y, 0.4, 0.4, 0, c_white, .3);
     }
     
     with (Obj_siren) {
         gpu_set_blendmode(bm_normal);
-        draw_sprite_ext(Sprt_siren_light_2, floor(imageFrame), x, y, 0.6, 0.6, 0, c_white, .7);
+        draw_sprite_ext(Sprt_siren_light_2, floor(imageFrame), x, y, 0.4, 0.4, 0, c_white, .8);
+    }
+    
+    with (Obj_player) {
+        gpu_set_blendmode(bm_normal);
+        draw_sprite_ext(Sprt_simple_light, 0, x, y -20, 0.2, 0.2, 0, c_white, .09);
     }
     
     gpu_set_blendmode(bm_normal);

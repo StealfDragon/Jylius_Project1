@@ -12,4 +12,4 @@ yspd = 0;
 
 tilemap = layer_tilemap_get_id("colTiles");
 
-state = C_ENEMY_STATES.STATE_IDLE;
+state = COM_ENEMY_STATES.IDLE;

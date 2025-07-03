@@ -14,5 +14,7 @@ jumpHoldTimer = 0;
 //inclines
 stepHeight = 10;
 
-
 tilemap = layer_tilemap_get_id("colTiles");
+
+moveState = PLAYER_STATES.IDLE;
+attackState = PLAYER_STATES.NULL;

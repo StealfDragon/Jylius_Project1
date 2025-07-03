@@ -1,7 +1,7 @@
 {
   "$GMSprite":"",
   "%Name":"Sprt_player_idle_cinematic",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":50,
   "bbox_left":0,
   "bbox_right":27,
@@ -55,8 +55,8 @@
   },
   "origin":7,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"Player Animations",
+    "path":"folders/Sprites/Player Animations.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

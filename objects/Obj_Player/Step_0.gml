@@ -38,7 +38,7 @@ switch(moveState) {
         
     break;
     case(PLAYER_STATES.RUNNING):
-        // ADD ACCELERATION
+        //ADD ACCELERATION
     
         //Sprite change
         if (moveDir > 0) {
@@ -50,46 +50,10 @@ switch(moveState) {
             dir = -1; 
         }
         
-        //Movement
         
         //X Movement
         moveDir = rightKey-leftKey;
-        xspd = moveSpd * moveDir;
-        
-        //X Collision
-        if place_meeting(x + xspd, y, tilemap) {
-            
-            // Moving up a slope
-            if (!place_meeting(x + xspd, y - stepHeight, tilemap)) {
-                while place_meeting(x + xspd, y  - ySubPixel, tilemap){
-                    y -= ySubPixel;
-                }
-            } 
-            else {
-                //Scoot up to wall precisely
-                var xPixelCheck = xSubPixel * sign(xspd); // method gets positive/negative value of xspd, useful for future complicated player movement
-                if (xPixelCheck != 0) {
-                    while !place_meeting(x + xPixelCheck, y, tilemap) {
-                        x += xPixelCheck;
-                    }
-                }
-                
-                //stop horizontal movement
-                xspd = 0;
-                moveState = PLAYER_STATES.IDLE;
-            }    
-            
-        }
-    
-        //Go down slopes
-        if yspd >= 0 && !place_meeting(x + xspd, y + 1, tilemap) && place_meeting(x + xspd, y + stepHeight, tilemap) {
-            while !place_meeting(x + xspd, y + ySubPixel, tilemap) {
-                y += ySubPixel;
-            }
-        }
-        
-        //Move
-        x += xspd;    
+        Horiz_Movement();
     
         //State changes
         if (!place_meeting(x, y + 1, tilemap)) {
@@ -116,7 +80,6 @@ switch(moveState) {
         yspd = Apply_Grav(yspd);
     
         //State changes
-        //var ySubPixel = 0.5; //either remove var or make new variable later
         if place_meeting(x, y + yspd, tilemap) {
             
             //same approaching movement as before
@@ -210,4 +173,43 @@ function changeSprite(spr) {
         if sprite_index != spr {
             sprite_index = spr;
         } 
+}
+
+function Horiz_Movement() {//x, y, xspd, yspd, tilemap, moveSpd, moveDir, stepHeight, ySubPixel, xSubPixel){
+    xspd = moveSpd * moveDir;
+        
+    //X Collision
+    if place_meeting(x + xspd, y, tilemap) {
+        
+        //Moving up a slope
+        if (!place_meeting(x + xspd, y - stepHeight, tilemap)) {
+            while place_meeting(x + xspd, y  - ySubPixel, tilemap){
+                y -= ySubPixel;
+            }
+        } 
+        else {
+            //Scoot up to wall precisely
+            var xPixelCheck = xSubPixel * sign(xspd); // method gets positive/negative value of xspd, useful for future complicated player movement
+            if (xPixelCheck != 0) {
+                while !place_meeting(x + xPixelCheck, y, tilemap) {
+                    x += xPixelCheck;
+                }
+            }
+            
+            //Stop horizontal movement
+            xspd = 0;
+            moveState = PLAYER_STATES.IDLE;
+        }    
+        
+    }
+
+    //Go down slopes
+    if yspd >= 0 && !place_meeting(x + xspd, y + 1, tilemap) && place_meeting(x + xspd, y + stepHeight, tilemap) {
+        while !place_meeting(x + xspd, y + ySubPixel, tilemap) {
+            y += ySubPixel;
+        }
+    }
+    
+    //Move
+    x += xspd;    
 }

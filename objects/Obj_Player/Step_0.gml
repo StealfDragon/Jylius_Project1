@@ -50,7 +50,6 @@ switch(moveState) {
             dir = -1; 
         }
         
-        
         //X Movement
         moveDir = rightKey-leftKey;
         Horiz_Movement();
@@ -77,6 +76,9 @@ switch(moveState) {
         }
     
         //Movement
+        moveDir = rightKey-leftKey;
+        Horiz_Movement();
+    
         yspd = Apply_Grav(yspd);
     
         //State changes
@@ -104,6 +106,9 @@ switch(moveState) {
         //Sprite change
     
         //Movement
+        moveDir = rightKey-leftKey;
+        Horiz_Movement();
+        
         yspd = Apply_Grav(yspd);
     
         //State changes

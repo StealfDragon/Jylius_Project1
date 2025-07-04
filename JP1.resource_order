@@ -36,6 +36,8 @@
     {"name":"Sprt_door_closing","order":3,"path":"sprites/Sprt_door_closing/Sprt_door_closing.yy",},
     {"name":"Sprt_door_open","order":2,"path":"sprites/Sprt_door_open/Sprt_door_open.yy",},
     {"name":"Sprt_door_opening","order":1,"path":"sprites/Sprt_door_opening/Sprt_door_opening.yy",},
+    {"name":"Sprt_falling_right","order":7,"path":"sprites/Sprt_falling_right/Sprt_falling_right.yy",},
+    {"name":"Sprt_falling_rleft","order":8,"path":"sprites/Sprt_falling_rleft/Sprt_falling_rleft.yy",},
     {"name":"Sprt_jumping_left","order":5,"path":"sprites/Sprt_jumping_left/Sprt_jumping_left.yy",},
     {"name":"Sprt_jumping_right","order":6,"path":"sprites/Sprt_jumping_right/Sprt_jumping_right.yy",},
     {"name":"Sprt_light_fixture","order":5,"path":"sprites/Sprt_light_fixture/Sprt_light_fixture.yy",},

@@ -39,19 +39,12 @@ switch(state) {
 
 //Gravity (put into its own external function)
 if (!ignoreGrav) {
-    yspd += global.grav;
-    if yspd > global.termVel {
-        yspd = global.termVel;
-    }
+    yspd = Apply_Grav(yspd);
 }
 
-var _subPixel = 0.5;
+var ySubPixel = 0.5;
 if place_meeting(x, y + yspd, tilemap) {
     yspd = 0;
 }   
 
 y = floor(y + yspd);
-
-//var horiz = clamp(targetX - x, -1, 1);
-//move_and_collide(horiz, y, tilemap); 
-//    x += clamp(targetX - x, -1, 1);

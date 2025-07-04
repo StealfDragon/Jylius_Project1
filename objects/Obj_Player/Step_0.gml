@@ -1,25 +1,33 @@
 //get inputs (maybe switch these to instance variables later)
 var rightKey = keyboard_check(vk_right);
 var leftKey = keyboard_check(vk_left);
+if keyboard_check(vk_right) {
+    dir = 1;
+}
+if keyboard_check(vk_left) {
+    dir = -1;
+}
 var jumpKeyPressed = keyboard_check_pressed(vk_space);
 
 // Concurrent state machine
 switch(moveState) {
     case(PLAYER_STATES.IDLE):
         //Sprite change
-        changeSprite(Sprt_player_idle);
-        //if (direction < 0)
-            //changeSprite(Sprt_idle_left);
-        //else
-            //changeSprite(Sprt_idle_right); uncomment if/else when sprites in
+        if (dir == -1) {
+            changeSprite(Sprt_player_idle_left);
+        }
+        else if (dir == 1){
+            changeSprite(Sprt_player_idle_right);
+        }
         
         //State changes
         if (!place_meeting(x, y+1, tilemap)) {
             moveState = PLAYER_STATES.FALLING;
         }
         else if (rightKey or leftKey) {
-            changeSprite(Sprt_running_right);
-            moveState = PLAYER_STATES.RUNNING; //MAYBE change to walk when walk sprite made
+            if !place_meeting(x + dir, y, tilemap) {
+                moveState = PLAYER_STATES.RUNNING; //MAYBE change to walk when walk sprite made
+            }
         }
         else if (jumpKeyPressed) {
             yspd = jumpSpd;
@@ -31,17 +39,19 @@ switch(moveState) {
     break;
     case(PLAYER_STATES.RUNNING):
         var _subPixel = 0.5;
-        var _pixelCheck = _subPixel * sign(yspd);
+        var _pixelCheck = _subPixel * sign(xspd);
 
     
         // ADD ACCELERATION
     
         //Sprite change
         if (moveDir > 0) {
-            changeSprite(Sprt_running_right); //uncomment when sprite in
+            changeSprite(Sprt_running_right);
+            dir = 1; 
         }
         else if (moveDir < 0) {
-            //changeSprite(Sprt_running_left);
+            changeSprite(Sprt_running_left);
+            dir = -1; 
         }
         
         //Movement
@@ -59,18 +69,24 @@ switch(moveState) {
                 while place_meeting(x + xspd, y  - _subPixel, tilemap){
                     y -= _subPixel;
                 }
-            } else {
+            } 
+            else {
+                //Scoot up to wall precisely
+                //var _pixelCheck = _subPixel * sign(xspd); // method gets positive/negative value of xspd, useful for future complicated player movement
+                if (_pixelCheck != 0) {
+                    while !place_meeting(x + _pixelCheck, y, tilemap) {
+                        x += _pixelCheck;
+                    }
+                }
                 
-            //Scoot up to wall precisely
-            //var _pixelCheck = _subPixel * sign(xspd); // method gets positive/negative value of xspd, useful for future complicated player movement
-            while !place_meeting(x + _pixelCheck, y, tilemap) {
-                x += _pixelCheck;
-            }
-            
-            //stop horizontal movement
-            xspd = 0;
+                //stop horizontal movement
+                xspd = 0;
+                moveState = PLAYER_STATES.IDLE;
             }    
             
+        }
+        else {
+            x += xspd;
         }
     
         //Go down slopes
@@ -81,7 +97,7 @@ switch(moveState) {
         }
         
         //Move
-        x += xspd;    
+        //x += xspd;    
     
         //State changes
         if (!place_meeting(x, y + 1, tilemap)) {
@@ -101,10 +117,10 @@ switch(moveState) {
     
     
         //Sprite change
-        if (direction < 0) {
+        if (dir < 0) {
             //changeSprite(Sprt_jump_right); uncomment when sprite in
         }
-        else if (direction > 0) {
+        else if (dir > 0) {
             //changeSprite(Sprt_jump_left); uncomment when sprite in
         }
     

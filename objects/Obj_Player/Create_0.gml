@@ -16,3 +16,7 @@ tilemap = layer_tilemap_get_id("colTiles");
 
 moveState = PLAYER_STATES.IDLE;
 attackState = PLAYER_STATES.NULL;
+
+cantRun = false;
+
+dir = 1;

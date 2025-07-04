@@ -10,7 +10,6 @@ jumpHoldTimer = 0;
 
 //inclines
 stepHeight = 10;
-
 xSubPixel = 0.5;
 ySubPixel = 0.5;
 

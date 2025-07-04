@@ -3,4 +3,4 @@ if (instance_exists(Obj_player) and (distance_to_object(Obj_player) < aggroDist)
 }
 //add wandering later
 
-alarm[0] = 60;
+alarm[0] = 30;

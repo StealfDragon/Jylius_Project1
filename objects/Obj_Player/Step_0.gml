@@ -35,7 +35,6 @@ switch(moveState) {
         }
     break;
     case(PLAYER_STATES.WALKING):
-        
     break;
     case(PLAYER_STATES.RUNNING):
         //ADD ACCELERATION
@@ -68,11 +67,11 @@ switch(moveState) {
     break;
     case(PLAYER_STATES.JUMPING):
         //Sprite change
-        if (dir < 0) {
-            //changeSprite(Sprt_jump_right); uncomment when sprite in
+        if (dir > 0) {
+            changeSprite(Sprt_jumping_right);
         }
-        else if (dir > 0) {
-            //changeSprite(Sprt_jump_left); uncomment when sprite in
+        else if (dir < 0) {
+            changeSprite(Sprt_jumping_left);
         }
     
         //Movement
@@ -104,6 +103,12 @@ switch(moveState) {
     break;
     case(PLAYER_STATES.FALLING):
         //Sprite change
+        if (dir > 0) {
+            //changeSprite(Sprt_falling_right);
+        }
+        else if (dir < 0) {
+            //changeSprite(Sprt_falling_left);
+        }
     
         //Movement
         moveDir = rightKey-leftKey;
@@ -173,6 +178,8 @@ switch(attackState) {
         
     break;
 }
+
+
 
 function changeSprite(spr) {
         if sprite_index != spr {

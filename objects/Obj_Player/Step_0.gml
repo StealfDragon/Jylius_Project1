@@ -21,7 +21,7 @@ switch(moveState) {
         }
         
         //State changes
-        if (!place_meeting(x, y+1, tilemap)) {
+        if (!place_meeting(x, y+stepHeight, tilemap)) {
             moveState = PLAYER_STATES.FALLING;
         }
         else if (rightKey or leftKey) {
@@ -80,34 +80,39 @@ switch(moveState) {
     
         yspd = Apply_Grav(yspd);
     
-        //State changes
-        if place_meeting(x, y + yspd, tilemap) {
-            
-            //same approaching movement as before
-            var yPixelCheck = ySubPixel * sign(yspd);
-            while !place_meeting(x, y + yPixelCheck, tilemap) {
-                y += yPixelCheck;
-            }
-            
-            //stop vertical movement
-            yspd = 0;
-            if (xspd != 0){
-                moveState = PLAYER_STATES.RUNNING;
-            }
-            else {
-                moveState = PLAYER_STATES.IDLE;
-            }
-        }   
-    
-        y = floor(y + yspd); 
+        ////State changes
+        //if place_meeting(x, y + yspd, tilemap) {
+            //
+            ////same approaching movement as before
+            //var yPixelCheck = ySubPixel * sign(yspd);
+            //while !place_meeting(x, y + yPixelCheck, tilemap) {
+                //y += yPixelCheck;
+            //}
+            //
+            ////stop vertical movement
+            //yspd = 0;
+            //if (xspd != 0){
+                //moveState = PLAYER_STATES.RUNNING;
+            //}
+            //else {
+                //moveState = PLAYER_STATES.IDLE;
+            //}
+        //}   
+        
+        if (yspd >= 0) {
+            moveState = PLAYER_STATES.FALLING;
+        }
+        else {
+    	    y = floor(y + yspd); 
+        }
     break;
     case(PLAYER_STATES.FALLING):
         //Sprite change
         if (dir > 0) {
-            //changeSprite(Sprt_falling_right);
+            changeSprite(Sprt_falling_right);
         }
         else if (dir < 0) {
-            //changeSprite(Sprt_falling_left);
+            changeSprite(Sprt_falling_left);
         }
     
         //Movement

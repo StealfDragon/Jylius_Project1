@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Apply_Grav",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Apply_Grav",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

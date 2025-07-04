@@ -84,6 +84,7 @@ Design Specifications:
   Bosses give extra
   Random level generation for a more-replayable game
   Main character color selection
+  Landing animation/sprite
  
  Assets Necessary:
   Map:
@@ -113,9 +114,3 @@ Design Specifications:
    Attack speed item
    Damage item
    Movement speed item
-   
-    
- 
- Team Members and Tasks:
-  - Andrew - Sprites, Player movement, Level design, 
-  - Cassian - Whip, Enemies, 

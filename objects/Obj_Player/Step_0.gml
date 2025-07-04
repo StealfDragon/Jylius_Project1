@@ -18,9 +18,11 @@ switch(moveState) {
             moveState = PLAYER_STATES.FALLING;
         }
         else if (rightKey or leftKey) {
+            changeSprite(Sprt_running_right);
             moveState = PLAYER_STATES.RUNNING; //MAYBE change to walk when walk sprite made
         }
         else if (jumpKeyPressed) {
+            yspd = jumpSpd;
             moveState = PLAYER_STATES.JUMPING;
         }
     break;
@@ -28,14 +30,18 @@ switch(moveState) {
         
     break;
     case(PLAYER_STATES.RUNNING):
+        var _subPixel = 0.5;
+        var _pixelCheck = _subPixel * sign(yspd);
+
+    
         // ADD ACCELERATION
     
         //Sprite change
-        if (moveSpd < 0) {
-            //changeSprite(Sprt_running_right); uncomment when sprite in
+        if (moveDir > 0) {
+            changeSprite(Sprt_running_right); //uncomment when sprite in
         }
-        else if (moveSpd > 0) {
-            changeSprite(Sprt_running_left);
+        else if (moveDir < 0) {
+            //changeSprite(Sprt_running_left);
         }
         
         //Movement
@@ -45,7 +51,7 @@ switch(moveState) {
         xspd = moveSpd * moveDir;
         
         //X Collision
-        var _subPixel = 0.5;
+        //var _subPixel = 0.5;
         if place_meeting(x + xspd, y, tilemap) {
             
             // Moving up a slope
@@ -56,7 +62,7 @@ switch(moveState) {
             } else {
                 
             //Scoot up to wall precisely
-            var _pixelCheck = _subPixel * sign(xspd); // method gets positive/negative value of xspd, useful for future complicated player movement
+            //var _pixelCheck = _subPixel * sign(xspd); // method gets positive/negative value of xspd, useful for future complicated player movement
             while !place_meeting(x + _pixelCheck, y, tilemap) {
                 x += _pixelCheck;
             }
@@ -82,10 +88,18 @@ switch(moveState) {
             moveState = PLAYER_STATES.FALLING;
         }
         else if (jumpKeyPressed) {
+            yspd = jumpSpd;
             moveState = PLAYER_STATES.JUMPING;
+        }
+        else if (moveDir == 0) {
+            moveState = PLAYER_STATES.IDLE;
         }
     break;
     case(PLAYER_STATES.JUMPING):
+        var _subPixel = 0.5;
+        var _pixelCheck = _subPixel * sign(yspd);
+    
+    
         //Sprite change
         if (direction < 0) {
             //changeSprite(Sprt_jump_right); uncomment when sprite in
@@ -95,15 +109,78 @@ switch(moveState) {
         }
     
         //Movement
+        yspd = Apply_Grav(yspd);
     
         //State changes
+        //var _subPixel = 0.5; //either remove var or make new variable later
+        if place_meeting(x, y + yspd, tilemap) {
+            
+            //same approaching movement as before
+            //var _pixelCheck = _subPixel * sign(yspd);
+            while !place_meeting(x, y+_pixelCheck, tilemap) {
+                y += _pixelCheck;
+            }
+            
+            //stop vertical movement
+            yspd = 0;
+            if (xspd != 0){
+                moveState = PLAYER_STATES.RUNNING;
+            }
+            else {
+                moveState = PLAYER_STATES.IDLE;
+            }
+        }   
+    
+        y = floor(y + yspd); 
     break;
     case(PLAYER_STATES.FALLING):
+        var _subPixel = 0.5;
+        var _pixelCheck = _subPixel * sign(yspd);
+
         //Sprite change
     
         //Movement
+        yspd = Apply_Grav(yspd);
     
         //State changes
+        if place_meeting(x, y + yspd, tilemap) {
+            
+            //same approaching movement as before
+            //var _pixelCheck = _subPixel * sign(yspd);
+            while !place_meeting(x, y+_pixelCheck, tilemap) {
+                y += _pixelCheck;
+            }
+            
+            //stop vertical movement
+            yspd = 0;
+            if (xspd != 0){
+                moveState = PLAYER_STATES.RUNNING;
+            }
+            else {
+                moveState = PLAYER_STATES.IDLE;
+            }
+        }   
+    
+        if (jumpKeyPressed) {
+            if place_meeting(x, y+1, tilemap) {
+                yspd = jumpSpd;
+                moveState = PLAYER_STATES.JUMPING;
+            } 
+            // Input buffering (forgiveness frames)
+            else {
+                jumpHoldTimer = 5;
+            }
+        }
+        if !place_meeting(x, y+1, tilemap) && jumpHoldTimer != 0 {
+            jumpHoldTimer --;
+        }
+        if place_meeting(x, y+1, tilemap) && jumpHoldTimer > 0{
+            jumpHoldTimer = 0;
+            yspd = jumpSpd;
+            moveState = PLAYER_STATES.JUMPING;
+        }
+    
+        y = floor(y + yspd); 
     break;
 }
 
@@ -127,95 +204,6 @@ switch(attackState) {
         
     break;
 }
-
-
-////X Movement
-    //moveDir = rightKey-leftKey;
-    //xspd = moveSpd * moveDir;
-//
-////remove this later and add it to the state machine :(
-    //if xspd > 0  && yspd == 0{
-        //changeSprite(Sprt_running_right);
-    //} else {
-        //changeSprite(Sprt_player_idle)
-    //}
-    //
-    ////X Collision
-    //var _subPixel = .5;
-    //if place_meeting(x + xspd, y, tilemap) {
-        //
-        //// Moving up a slope
-        //if (!place_meeting(x + xspd, y - stepHeight, tilemap)) {
-            //while place_meeting(x + xspd, y  - _subPixel, tilemap){
-                //y -= _subPixel;
-            //}
-        //} else {
-            //
-        ////Scoot up to wall precisely
-        //var _pixelCheck = _subPixel * sign(xspd); // method gets positive/negative value of xspd, useful for future complicated player movement
-        //while !place_meeting(x + _pixelCheck, y, tilemap) {
-            //x += _pixelCheck;
-        //}
-        //
-        ////stop horizontal movement
-        //xspd = 0;
-        //}    
-        //
-    //}
-//
-    ////Go down slopes
-    //if yspd >=0 && !place_meeting(x + xspd, y + 1, tilemap) && place_meeting(x + xspd, y + stepHeight, tilemap) {
-        //while !place_meeting(x + xspd, y + _subPixel, tilemap) {
-            //y += _subPixel;
-        //}
-    //}
-    //
-    ////Move
-    //x += xspd;
-
-//Y Movement
-    //Gravity
-    yspd += grav;
-    if yspd > termVel {
-        yspd = termVel;
-    }
-
-    //jump
-    if jumpKeyPressed {
-        if place_meeting(x, y+1, tilemap) {
-            yspd = jumpSpd;
-        } 
-        // Input buffering (forgiveness frames)
-        else {
-                jumpHoldTimer = 5;
-        }
-    }
-    if !place_meeting(x, y+1, tilemap) && jumpHoldTimer != 0 {
-        jumpHoldTimer --;
-    }
-
-    if place_meeting(x, y+1, tilemap) && jumpHoldTimer > 0{
-        jumpHoldTimer = 0;
-        yspd = jumpSpd;
-    }
-
-    //Y collision
-    var _subPixel = 0.5; //either remove var or make new variable later
-    if place_meeting(x, y + yspd, tilemap) {
-        
-        //same approaching movement as before
-        var _pixelCheck = _subPixel * sign(yspd);
-        while !place_meeting(x, y+_pixelCheck, tilemap) {
-            y += _pixelCheck;
-        }
-        
-        //stop vertical movement
-        yspd = 0;
-        
-    }   
-
-    //y += yspd;
-    y = floor(y + yspd); 
 
 function changeSprite(spr) {
         if sprite_index != spr {

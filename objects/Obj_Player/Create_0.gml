@@ -5,11 +5,9 @@ xspd = 0;
 yspd = 0;
 
 //jumping
-gravScale = 1;
-grav = gravScale * 0.3;
-termVel = gravScale * 4.5;
-jumpSpd = -6 * gravScale;
+jumpSpd = -6 * global.gravScale;
 jumpHoldTimer = 0;
+_subPixel = 0.5;
 
 //inclines
 stepHeight = 10;

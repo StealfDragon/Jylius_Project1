@@ -19,6 +19,7 @@
   "ResourceOrderSettings":[
     {"name":"Obj_common_enemy_parent","order":2,"path":"objects/Obj_common_enemy_parent/Obj_common_enemy_parent.yy",},
     {"name":"Obj_prison_guard","order":3,"path":"objects/Obj_prison_guard/Obj_prison_guard.yy",},
+    {"name":"Apply_Grav","order":2,"path":"scripts/Apply_Grav/Apply_Grav.yy",},
     {"name":"Global_vars","order":1,"path":"scripts/Global_vars/Global_vars.yy",},
     {"name":"Sprite4","order":3,"path":"sprites/Sprite4/Sprite4.yy",},
     {"name":"Sprite5","order":1,"path":"sprites/Sprite5/Sprite5.yy",},

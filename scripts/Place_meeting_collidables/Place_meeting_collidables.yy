@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Place_meeting_collidables",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Place_meeting_collidables",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

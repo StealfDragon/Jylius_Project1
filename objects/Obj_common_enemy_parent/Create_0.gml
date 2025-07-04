@@ -8,6 +8,8 @@ ignoreGrav = false;
 
 targetX = x;
 
+moveDir = 0;
+
 stepHeight = 10;
 xSubPixel = 0.5;
 ySubPixel = 0.5;

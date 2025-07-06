@@ -32,6 +32,8 @@
     {"name":"Sprite5","order":1,"path":"sprites/Sprite5/Sprite5.yy",},
     {"name":"Sprite6","order":4,"path":"sprites/Sprite6/Sprite6.yy",},
     {"name":"Sprite8","order":3,"path":"sprites/Sprite8/Sprite8.yy",},
+    {"name":"Sprt_apex_left","order":10,"path":"sprites/Sprt_apex_left/Sprt_apex_left.yy",},
+    {"name":"Sprt_apex_right","order":9,"path":"sprites/Sprt_apex_right/Sprt_apex_right.yy",},
     {"name":"Sprt_bits_and_bobs","order":4,"path":"sprites/Sprt_bits_and_bobs/Sprt_bits_and_bobs.yy",},
     {"name":"Sprt_door_closing","order":3,"path":"sprites/Sprt_door_closing/Sprt_door_closing.yy",},
     {"name":"Sprt_door_open","order":2,"path":"sprites/Sprt_door_open/Sprt_door_open.yy",},

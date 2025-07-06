@@ -54,6 +54,8 @@
     {"id":{"name":"Sprite5","path":"sprites/Sprite5/Sprite5.yy",},},
     {"id":{"name":"Sprite6","path":"sprites/Sprite6/Sprite6.yy",},},
     {"id":{"name":"Sprite8","path":"sprites/Sprite8/Sprite8.yy",},},
+    {"id":{"name":"Sprt_apex_left","path":"sprites/Sprt_apex_left/Sprt_apex_left.yy",},},
+    {"id":{"name":"Sprt_apex_right","path":"sprites/Sprt_apex_right/Sprt_apex_right.yy",},},
     {"id":{"name":"Sprt_bits_and_bobs","path":"sprites/Sprt_bits_and_bobs/Sprt_bits_and_bobs.yy",},},
     {"id":{"name":"Sprt_door_closed","path":"sprites/Sprt_door_closed/Sprt_door_closed.yy",},},
     {"id":{"name":"Sprt_door_closing","path":"sprites/Sprt_door_closing/Sprt_door_closing.yy",},},

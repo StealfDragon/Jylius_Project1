@@ -80,8 +80,8 @@ switch(moveState) {
     
         yspd = Apply_Grav(yspd);
     
-        ////State changes
-        //if place_meeting(x, y + yspd, tilemap) {
+        //State changes
+        //if place_meeting(x, y - yspd, tilemap) {
             //
             ////same approaching movement as before
             //var yPixelCheck = ySubPixel * sign(yspd);
@@ -91,14 +91,13 @@ switch(moveState) {
             //
             ////stop vertical movement
             //yspd = 0;
-            //if (xspd != 0){
-                //moveState = PLAYER_STATES.RUNNING;
-            //}
-            //else {
-                //moveState = PLAYER_STATES.IDLE;
-            //}
+            //moveState = PLAYER_STATES.FALLING;
         //}   
-        
+    
+        if place_meeting(x + xspd, y + yspd, tilemap) {
+            move_and_collide(0, 0, tilemap);
+            yspd = 0;
+        }
         if (yspd >= 0) {
             moveState = PLAYER_STATES.FALLING;
         }

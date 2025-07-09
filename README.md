@@ -85,6 +85,7 @@ Design Specifications:
   Random level generation for a more-replayable game
   Main character color selection
   Landing animation/sprite
+  Secret level where you fight the original temporary enemy sprite
  
  Assets Necessary:
   Map:

@@ -1,14 +1,30 @@
 switch(state) {
     case (COM_ENEMY_STATES.IDLE):
+        if (dir <= 0) {
+            changeSprite(Com_Enemy_Temp);
+            image_xscale = -1;
+        }
+        else if (dir == 1){
+            changeSprite(Com_Enemy_Temp);
+            image_xscale = 1;
+        }
+    
         //idle sprite (set by child but implemented here)
         if (canPatrol) { //check for canPatrol because some enemies will be position locked
             state = COM_ENEMY_STATES.PATROLLING;
-            break;
         }
     break;
     
     case (COM_ENEMY_STATES.PATROLLING):
         //patrol sprite (set by child but implemented here)
+        //if (dir <= 0) {
+            //changeSprite(Com_Enemy_Temp);
+            //image_xscale = -1;
+        //}
+        //else if (dir == 1){
+            //changeSprite(Com_Enemy_Temp);
+            //image_xscale = 1;
+        //}
     
         //implement path stuff upon new branch
         //also implement moving back to patrol position
@@ -17,25 +33,51 @@ switch(state) {
     
         if (distance_to_object(Obj_player) < aggroDist) and (instance_exists(Obj_player)) { //if player is within aggro distance, switch to chasing state
             state = COM_ENEMY_STATES.CHASING;
-            break;
         }
     break;
     
     case (COM_ENEMY_STATES.CHASING):
         //chasing sprite (set by child but implemented here)
+        if (dir <= 0) {
+            changeSprite(Com_Enemy_Temp_Chase);
+            image_xscale = -1;
+        }
+        else if (dir == 1){
+            changeSprite(Com_Enemy_Temp_Chase);
+            image_xscale = 1;
+        }
+    
+        if (distance_to_object(Obj_player) < attackDist and canAttack) {
+            state = COM_ENEMY_STATES.ATTACKING;
+            break;
+        }
         if (distance_to_object(Obj_player) > loseAggroDist) { //if player is no longer within aggro distance, switch to patrolling state
             state = COM_ENEMY_STATES.PATROLLING;
-            break;
         }
         //x += clamp(targetX - x, -moveSpd, moveSpd);
     
         moveDir = sign(targetX - x)
+        dir = -sign(targetX - x)
         Horiz_Movement();
     break;
     
     case (COM_ENEMY_STATES.ATTACKING):
         //attacking sprite (set by child but implemented here)
+        if (dir <= 0) {
+            changeSprite(Com_Enemy_Temp_Atk);
+            image_xscale = -1;
+        }
+        else if (dir == 1){
+            changeSprite(Com_Enemy_Temp_Atk);
+            image_xscale = 1;
+        }
         //use attackDist to do a thing
+        
+    
+        dir = -sign(targetX - x)
+        if (distance_to_object(Obj_player) > stopAttackDist) {
+            state = COM_ENEMY_STATES.CHASING;
+        }
     break;
     
 }
@@ -93,4 +135,10 @@ function Horiz_Movement() {//x, y, xspd, yspd, tilemap, moveSpd, moveDir, stepHe
     if (xspd != 0) {
         x += clamp(targetX - x, -moveSpd, moveSpd);
     }  
+}
+
+function changeSprite(spr) {
+    if sprite_index != spr {
+        sprite_index = spr;
+    } 
 }

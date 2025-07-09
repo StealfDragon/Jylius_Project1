@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Sprite4",
-    "path":"sprites/Sprite4/Sprite4.yy",
+    "name":"Com_Enemy_Temp",
+    "path":"sprites/Com_Enemy_Temp/Com_Enemy_Temp.yy",
   },
   "spriteMaskId":null,
   "visible":true,

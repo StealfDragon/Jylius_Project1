@@ -2,13 +2,17 @@ hp = 20;
 moveSpd = 3.3;
 aggroDist = 250;
 loseAggroDist = aggroDist + 50;
-attackDist = 10;
+attackDist = 5;
+stopAttackDist = 50;
 canPatrol = true;
 ignoreGrav = false;
+canAttack = true;
+atkAnimNum = 0;
 
 targetX = x;
 
 moveDir = 0;
+dir = 1;
 
 stepHeight = 10;
 xSubPixel = 0.5;

@@ -11,7 +11,7 @@ var jumpKeyPressed = keyboard_check_pressed(vk_space);
 
 // Concurrent state machine
 switch(moveState) {
-    case(PLAYER_STATES.IDLE):
+    case(PLAYER_STATES.IDLE): // ------------------------Idle
         //Sprite change
         if (dir == -1) {
             changeSprite(Sprt_player_idle_left);
@@ -29,14 +29,14 @@ switch(moveState) {
                 moveState = PLAYER_STATES.RUNNING; //MAYBE change to walk when walk sprite made
             }
         }
-        else if (jumpKeyPressed) {
+        if (jumpKeyPressed) {
             yspd = jumpSpd;
             moveState = PLAYER_STATES.JUMPING;
         }
     break;
-    case(PLAYER_STATES.WALKING):
+    case(PLAYER_STATES.WALKING):// ------------------------Walking
     break;
-    case(PLAYER_STATES.RUNNING):
+    case(PLAYER_STATES.RUNNING):// ------------------------Running
         //ADD ACCELERATION
     
         //Sprite change
@@ -55,7 +55,8 @@ switch(moveState) {
     
         //State changes
         if (!place_meeting(x, y + 1, tilemap)) {
-            moveState = PLAYER_STATES.FALLING;
+            moveState = PLAYER_STATES.APEX;
+            framesWithJump = coyoteTimeVal;
         }
         else if (jumpKeyPressed) {
             yspd = jumpSpd;
@@ -65,7 +66,7 @@ switch(moveState) {
             moveState = PLAYER_STATES.IDLE;
         }
     break;
-    case(PLAYER_STATES.JUMPING):
+    case(PLAYER_STATES.JUMPING): // ------------------------Jumping
         //Sprite change
         if (dir > 0) {
             changeSprite(Sprt_jumping_right);
@@ -81,31 +82,126 @@ switch(moveState) {
         yspd = Apply_Grav(yspd);
     
         //State changes
-        //if place_meeting(x, y - yspd, tilemap) {
-            //
-            ////same approaching movement as before
-            //var yPixelCheck = ySubPixel * sign(yspd);
-            //while !place_meeting(x, y + yPixelCheck, tilemap) {
-                //y += yPixelCheck;
-            //}
-            //
-            ////stop vertical movement
-            //yspd = 0;
-            //moveState = PLAYER_STATES.FALLING;
-        //}   
-    
-        if place_meeting(x + xspd, y + yspd, tilemap) {
-            move_and_collide(0, 0, tilemap);
+        if place_meeting(x, y + yspd, tilemap) {
+            
+            //same approaching movement as before
+            var yPixelCheck = ySubPixel * sign(yspd);
+            while !place_meeting(x, y + yPixelCheck, tilemap) {
+                y += yPixelCheck;
+            }
+            
+            //stop vertical movement
             yspd = 0;
-        }
-        if (yspd >= 0) {
-            moveState = PLAYER_STATES.FALLING;
+            //moveState = PLAYER_STATES.FALLING;
+        }   
+    
+        //if place_meeting(x + xspd, y + yspd, tilemap) {
+            //move_and_collide(0, 0, tilemap);
+            //yspd = 0;
+        //}
+        if (yspd >= -3 * apexScale) {
+            moveState = PLAYER_STATES.APEX;
         }
         else {
     	    y = floor(y + yspd); 
         }
     break;
-    case(PLAYER_STATES.FALLING):
+    
+    case(PLAYER_STATES.APEX): // ------------------------Apex
+        //Coyote Time
+         if framesWithJump > 0 { 
+            if (jumpKeyPressed) {
+                yspd = jumpSpd;
+                moveState = PLAYER_STATES.JUMPING;
+            } else {
+                framesWithJump--; 
+            }
+        }    
+    
+        //Sprite change
+        if (dir > 0) {
+            changeSprite(Sprt_apex_right);
+        }
+        else if (dir < 0) {
+            changeSprite(Sprt_apex_left);
+        }
+    
+        //vertical speed sprite changes
+        if (-3 * apexScale < yspd < -apexScale) {
+            image_index = 1;
+        }
+        else if (-apexScale < yspd < apexScale) {
+            image_index = 2;
+        }
+        else if (apexScale < yspd < 3 * apexScale) {
+            image_index = 3;
+        } else if (yspd >= 3 * apexScale) {
+            moveState = PLAYER_STATES.FALLING;
+        }
+    
+    
+    //Movement
+        moveDir = rightKey-leftKey;
+        Horiz_Movement();
+        
+        yspd = Apply_Grav(yspd);
+    
+        //State changes
+        if place_meeting(x, y + yspd, tilemap) {
+            
+            //same approaching movement as before
+            var yPixelCheck = ySubPixel * sign(yspd);
+            while !place_meeting(x, y + yPixelCheck, tilemap) {
+                y += yPixelCheck;
+            }
+            
+             //stop vertical movement
+            yspd = 0;
+            if (xspd != 0){
+                moveState = PLAYER_STATES.RUNNING;
+            }
+            else {
+                moveState = PLAYER_STATES.IDLE;
+            }
+           
+            
+        }   
+    
+        if (jumpKeyPressed) {
+            if place_meeting(x, y+1, tilemap) {
+                yspd = jumpSpd;
+                moveState = PLAYER_STATES.JUMPING;
+            } 
+            // Input buffering (forgiveness frames)
+            else {
+                jumpHoldTimer = 5;
+            }
+        }
+        if !place_meeting(x, y+1, tilemap) && jumpHoldTimer != 0 {
+            jumpHoldTimer --;
+        }
+        if place_meeting(x, y+1, tilemap) && jumpHoldTimer > 0{
+            jumpHoldTimer = 0;
+            yspd = jumpSpd;
+            moveState = PLAYER_STATES.JUMPING;
+        }
+    
+        y = floor(y + yspd); 
+   
+    
+    break;
+    
+    case(PLAYER_STATES.FALLING): // ------------------------Falling
+        if framesWithJump > 0 { 
+            if (jumpKeyPressed) {
+                yspd = jumpSpd;
+                moveState = PLAYER_STATES.JUMPING;
+            } else {
+                framesWithJump--; 
+            }
+        }    
+    
+    
         //Sprite change
         if (dir > 0) {
             changeSprite(Sprt_falling_right);
@@ -129,7 +225,7 @@ switch(moveState) {
                 y += yPixelCheck;
             }
             
-            //stop vertical movement
+             //stop vertical movement
             yspd = 0;
             if (xspd != 0){
                 moveState = PLAYER_STATES.RUNNING;
@@ -137,6 +233,8 @@ switch(moveState) {
             else {
                 moveState = PLAYER_STATES.IDLE;
             }
+           
+            
         }   
     
         if (jumpKeyPressed) {
@@ -198,7 +296,7 @@ function Horiz_Movement() {//x, y, xspd, yspd, tilemap, moveSpd, moveDir, stepHe
     if place_meeting(x + xspd, y, tilemap) {
         
         //Moving up a slope
-        if (!place_meeting(x + xspd, y - stepHeight, tilemap)) {
+        if (!place_meeting(x + xspd, y - stepHeight , tilemap)) {
             while place_meeting(x + xspd, y  - ySubPixel, tilemap){
                 y -= ySubPixel;
             }
@@ -214,7 +312,7 @@ function Horiz_Movement() {//x, y, xspd, yspd, tilemap, moveSpd, moveDir, stepHe
             
             //Stop horizontal movement
             xspd = 0;
-            moveState = PLAYER_STATES.IDLE;
+            //moveState = PLAYER_STATES.IDLE;
         }    
         
     }

@@ -7,6 +7,9 @@ yspd = 0;
 //jumping
 jumpSpd = -6 * global.gravScale;
 jumpHoldTimer = 0;
+coyoteTimeVal = 7;
+framesWithJump = 0;
+apexScale = 0.25
 
 //inclines
 stepHeight = 10;

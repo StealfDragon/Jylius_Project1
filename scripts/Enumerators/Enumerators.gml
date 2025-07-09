@@ -3,6 +3,7 @@ enum PLAYER_STATES {
     WALKING,
     RUNNING,
     JUMPING,
+    APEX,
     FALLING,
     
     NULL,

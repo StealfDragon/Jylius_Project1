@@ -20,6 +20,8 @@ switch(moveState) {
             changeSprite(Sprt_player_idle_right);
         }
         
+        Horiz_Movement();
+        
         //State changes
         if (!place_meeting(x, y+stepHeight, tilemap)) {
             moveState = PLAYER_STATES.FALLING;
@@ -290,7 +292,29 @@ function changeSprite(spr) {
 }
 
 function Horiz_Movement() {//x, y, xspd, yspd, tilemap, moveSpd, moveDir, stepHeight, ySubPixel, xSubPixel){
-    xspd = moveSpd * moveDir;
+    //xspd = moveSpd * moveDir; // old code for calculating x velocity
+    
+    //new xspd code (uses acceleration)
+    if moveDir == 0 {
+        if abs(xspd) > 0 {
+            a = sign(xspd);
+            xspd -= sign(xspd) * acceleration;
+            b = sign(xspd);
+            
+            //if player switches direction due to deceleration calculations, stop player movement
+            if a != b {
+                xspd = 0;
+            }
+        }
+    } else if abs(xspd) < moveSpd {
+        xspd += moveDir * acceleration;
+    } else if xspd = -1 * (moveDir * moveSpd){ // this case accounts for if the player switches direction without slowing down
+        xspd -= sign(xspd) * acceleration;
+    } else {
+        xspd = moveDir * moveSpd;
+    }
+    
+    
         
     //X Collision
     if place_meeting(x + xspd, y, tilemap) {

@@ -1,6 +1,7 @@
 //Moving
 moveDir = 0;
-moveSpd = 3.5;
+moveSpd = 4;
+acceleration = 0.55;
 xspd = 0;
 yspd = 0;
 

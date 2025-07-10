@@ -6,8 +6,10 @@ attackDist = 5;
 stopAttackDist = 50;
 canPatrol = true;
 ignoreGrav = false;
+
 canAttack = true;
-atkAnimNum = 0;
+attackCooldown = 90;
+
 
 targetX = x;
 

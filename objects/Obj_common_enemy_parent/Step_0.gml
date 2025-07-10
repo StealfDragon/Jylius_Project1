@@ -54,6 +54,8 @@ switch(state) {
         if (distance_to_object(Obj_player) > loseAggroDist) { //if player is no longer within aggro distance, switch to patrolling state
             state = COM_ENEMY_STATES.PATROLLING;
         }
+            
+    
         //x += clamp(targetX - x, -moveSpd, moveSpd);
     
         moveDir = sign(targetX - x)
@@ -71,8 +73,12 @@ switch(state) {
             changeSprite(Com_Enemy_Temp_Atk);
             image_xscale = 1;
         }
-        //use attackDist to do a thing
         
+        if (image_index == sprite_get_number((Com_Enemy_Temp_Atk))) {
+            state = COM_ENEMY_STATES.CHASING;
+            alarm[1] = attackCooldown;
+            canAttack = false;
+        }
     
         dir = -sign(targetX - x)
         if (distance_to_object(Obj_player) > stopAttackDist) {

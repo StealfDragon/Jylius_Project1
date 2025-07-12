@@ -26,8 +26,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"Player Animations",
-    "path":"folders/Sprites/Player Animations.yy",
+    "name":"Movement",
+    "path":"folders/Sprites/Player Animations/Movement.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

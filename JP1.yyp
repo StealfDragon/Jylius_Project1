@@ -27,6 +27,8 @@
     {"$GMFolder":"","%Name":"Doors","folderPath":"folders/Sprites/Doors.yy","name":"Doors","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Enemy Animations","folderPath":"folders/Sprites/Enemy Animations.yy","name":"Enemy Animations","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Player Animations","folderPath":"folders/Sprites/Player Animations.yy","name":"Player Animations","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Combat","folderPath":"folders/Sprites/Player Animations/Combat.yy","name":"Combat","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Movement","folderPath":"folders/Sprites/Player Animations/Movement.yy","name":"Movement","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Timelines","folderPath":"folders/Timelines.yy","name":"Timelines","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],

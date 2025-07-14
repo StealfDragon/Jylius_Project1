@@ -1,6 +1,7 @@
 //get inputs (maybe switch these to instance variables later)
 var rightKey = keyboard_check(vk_right);
 var leftKey = keyboard_check(vk_left);
+
 if keyboard_check(vk_right) {
     dir = 1;
 }
@@ -8,6 +9,7 @@ if keyboard_check(vk_left) {
     dir = -1;
 }
 var jumpKeyPressed = keyboard_check_pressed(vk_space);
+var attackKeyPressed = keyboard_check_pressed(ord("C"));
 
 // Concurrent state machine
 switch(moveState) {
@@ -129,16 +131,18 @@ switch(moveState) {
         }
     
         //vertical speed sprite changes
-        if (-3 * apexScale < yspd < -apexScale) {
-            image_index = 1;
-        }
-        else if (-apexScale < yspd < apexScale) {
-            image_index = 2;
-        }
-        else if (apexScale < yspd < 3 * apexScale) {
-            image_index = 3;
-        } else if (yspd >= 3 * apexScale) {
-            moveState = PLAYER_STATES.FALLING;
+        if sprOverride == false {
+            if (-3 * apexScale < yspd < -apexScale) {
+                image_index = 1;
+            }
+            else if (-apexScale < yspd < apexScale) {
+                image_index = 2;
+            }
+            else if (apexScale < yspd < 3 * apexScale) {
+                image_index = 3;
+            } else if (yspd >= 3 * apexScale) {
+                moveState = PLAYER_STATES.FALLING;
+            }
         }
     
     
@@ -264,9 +268,46 @@ switch(moveState) {
 
 switch(attackState) {
     case(PLAYER_STATES.NULL):
+    
         //set back to previous sprite
+        if (attackKeyPressed) {
+            attackState = PLAYER_STATES.WHIP1;
+            whipStart = true;
+        }
     break;
-    case(PLAYER_STATES.PRIMARY_ATTACK):
+    case(PLAYER_STATES.WHIP1):
+        
+        if whipStart == true {
+            whipStart = false;
+            
+            //set sprite and have it override any sprite change calls
+            sprOverride = true;
+            if (dir > 0) {
+                sprite_index = Sprt_whip_1_right;
+            }
+            else if (dir < 0) {
+                sprite_index = Sprt_whip_1_left;
+            }
+            image_index = 0;
+            
+            //change movement
+            acceleration = 0.2;
+            xspd = 0;
+            if yspd > 0 {
+                yspd = 0;
+            }
+            
+            
+            //set alarm to end sprite and change movement back
+            alarm[0] = 20
+            
+        }
+    
+    break;
+    case(PLAYER_STATES.WHIP2):
+        
+    break;
+    case(PLAYER_STATES.WHIP3):
         
     break;
     case(PLAYER_STATES.ATTACK_COMBO):
@@ -284,12 +325,12 @@ switch(attackState) {
 }
 
 
-
 function changeSprite(spr) {
-        if sprite_index != spr {
+        if sprOverride == false && sprite_index != spr {
             sprite_index = spr;
         } 
 }
+
 
 function Horiz_Movement() {//x, y, xspd, yspd, tilemap, moveSpd, moveDir, stepHeight, ySubPixel, xSubPixel){
     //xspd = moveSpd * moveDir; // old code for calculating x velocity

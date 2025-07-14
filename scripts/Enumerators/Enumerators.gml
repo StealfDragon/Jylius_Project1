@@ -7,7 +7,9 @@ enum PLAYER_STATES {
     FALLING,
     
     NULL,
-    PRIMARY_ATTACK,
+    WHIP1,
+    WHIP2,
+    WHIP3,
     ATTACK_COMBO,
     SHOOT,
     BLOCK,

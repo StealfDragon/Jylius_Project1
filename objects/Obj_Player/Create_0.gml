@@ -1,7 +1,11 @@
+//sprites
+sprOverride = false;
+
 //Moving
 moveDir = 0;
 moveSpd = 4;
-acceleration = 0.55;
+defaultAcceleration = 0.55;
+acceleration = defaultAcceleration;
 xspd = 0;
 yspd = 0;
 
@@ -25,3 +29,8 @@ attackState = PLAYER_STATES.NULL;
 cantRun = false;
 
 dir = 1;
+
+//combat
+
+//whip
+whipStart = false;

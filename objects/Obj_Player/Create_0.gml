@@ -34,3 +34,6 @@ dir = 1;
 
 //whip
 whipStart = false;
+whippable = true;
+whipCount = 1;
+whipBuffer = 0;

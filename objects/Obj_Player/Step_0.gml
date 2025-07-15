@@ -271,14 +271,31 @@ switch(attackState) {
     
         //set back to previous sprite
         if (attackKeyPressed) {
-            attackState = PLAYER_STATES.WHIP1;
             whipStart = true;
+            switch(whipCount) {
+                case(1):
+                attackState = PLAYER_STATES.WHIP1;
+                break;
+                
+                case(2):
+                attackState = PLAYER_STATES.WHIP2;
+                break;
+                
+                case(3):
+                attackState = PLAYER_STATES.WHIP3;
+                break;
+                
+            }
+            
         }
     break;
     case(PLAYER_STATES.WHIP1):
         
         if whipStart == true {
             whipStart = false;
+            whipCount = 2;
+            show_debug_message("one");
+            show_debug_message(whipCount);
             
             //set sprite and have it override any sprite change calls
             sprOverride = true;
@@ -297,18 +314,105 @@ switch(attackState) {
                 yspd = 0;
             }
             
+            //set alarm that ends cooldown for whip usage
+            whippable = false;
+            alarm[1] = 16;
+            
+            //set alarm to end sprite and change movement back
+            alarm[0] = 20;
+            
+            //set alarm to reset whip counter;
+            alarm[2] = 60;
+        }
+            
+    if (!whipStart) && (attackKeyPressed || whipBuffer > 0) && whippable {
+        whipStart = true;
+        sprOverride = false;
+        attackState = PLAYER_STATES.WHIP2;
+    } else if attackKeyPressed {
+        whipBuffer = 9
+    }
+    if whipBuffer > 0 {
+        whipBuffer --
+    }
+    
+    break;
+    case(PLAYER_STATES.WHIP2):
+        if whipStart == true {
+            whipStart = false;
+            whipCount = 3;
+            show_debug_message("two");
+            show_debug_message(whipCount);
+            
+            //set sprite and have it override any sprite change calls
+            sprOverride = true;
+            if (dir > 0) {
+                sprite_index = Sprt_whip_2_right;
+            }
+            else if (dir < 0) {
+                sprite_index = Sprt_whip_2_left;
+            }
+            image_index = 0;
+            
+            //change movement
+            acceleration = 0.2;
+            xspd = 0;
+            if yspd > 0 {
+                yspd = 0;
+            }
+            
+            //set alarm that ends cooldown for whip usage
+            whippable = false;
+            alarm[1] = 16;
             
             //set alarm to end sprite and change movement back
             alarm[0] = 20
             
+            //set alarm to reset whip counter;
+            alarm[2] = 60;
         }
-    
-    break;
-    case(PLAYER_STATES.WHIP2):
-        
+    if (!whipStart) && (attackKeyPressed || whipBuffer > 0) && whippable {
+        whipStart = true;
+        sprOverride = false;
+        attackState = PLAYER_STATES.WHIP3;
+    } else if attackKeyPressed {
+        whipBuffer = 9
+    }
+    if whipBuffer > 0 {
+        whipBuffer --
+    }
     break;
     case(PLAYER_STATES.WHIP3):
-        
+         if whipStart == true {
+            whipStart = false;
+            whipCount = 1;
+            show_debug_message("three");
+            show_debug_message(whipCount);
+            
+            //set sprite and have it override any sprite change calls
+            sprOverride = true;
+            if (dir > 0) {
+                sprite_index = Sprt_whip_3_right;
+            }
+            else if (dir < 0) {
+                sprite_index = Sprt_whip_3_left;
+            }
+            image_index = 0;
+            
+            //change movement
+            acceleration = 0.2;
+            xspd = 0;
+            if yspd > 0 {
+                yspd = 0;
+            }
+            
+            //set alarm that ends cooldown for whip usage
+            whippable = false;
+            alarm[1] = 18;
+            
+            //set alarm to end sprite and change movement back
+            alarm[0] = 22;
+        }
     break;
     case(PLAYER_STATES.ATTACK_COMBO):
         

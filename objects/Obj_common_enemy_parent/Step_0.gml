@@ -1,6 +1,6 @@
 switch(state) {
     case (COM_ENEMY_STATES.IDLE):
-        if (dir <= 0) {
+        if (dir == -1) {
             changeSprite(Com_Enemy_Temp);
             image_xscale = -1;
         }
@@ -37,8 +37,9 @@ switch(state) {
     break;
     
     case (COM_ENEMY_STATES.CHASING):
+        show_debug_message("in chasing state");
         //chasing sprite (set by child but implemented here)
-        if (dir <= 0) {
+        if (dir == -1) {
             changeSprite(Com_Enemy_Temp_Chase);
             image_xscale = -1;
         }
@@ -48,6 +49,7 @@ switch(state) {
         }
     
         if (distance_to_object(Obj_player) < attackDist and canAttack) {
+            attackFrameNum = 1;
             state = COM_ENEMY_STATES.ATTACKING;
             break;
         }
@@ -58,14 +60,18 @@ switch(state) {
     
         //x += clamp(targetX - x, -moveSpd, moveSpd);
     
-        moveDir = sign(targetX - x)
-        dir = -sign(targetX - x)
+        moveDir = sign(targetX - x);
+        if (targetX - x != 0) {
+            dir = -sign(targetX - x);
+        }
         Horiz_Movement();
     break;
     
     case (COM_ENEMY_STATES.ATTACKING):
+        show_debug_message("in attacking state");
+        attackFrameNum++;
         //attacking sprite (set by child but implemented here)
-        if (dir <= 0) {
+        if (dir == -1) {
             changeSprite(Com_Enemy_Temp_Atk);
             image_xscale = -1;
         }
@@ -74,16 +80,20 @@ switch(state) {
             image_xscale = 1;
         }
         
-        if (image_index == sprite_get_number((Com_Enemy_Temp_Atk))) {
-            state = COM_ENEMY_STATES.CHASING;
+        if (image_index == sprite_get_number(Com_Enemy_Temp_Atk)) {
             alarm[1] = attackCooldown;
+            show_debug_message("set alarm");
             canAttack = false;
-        }
-    
-        dir = -sign(targetX - x)
-        if (distance_to_object(Obj_player) > stopAttackDist) {
             state = COM_ENEMY_STATES.CHASING;
         }
+        if (attackFrameNum == 60) {
+            alarm[1] = attackCooldown;
+            //show_debug_message("set alarm");
+            canAttack = false;
+            state = COM_ENEMY_STATES.CHASING;
+        }
+        
+        
     break;
     
 }

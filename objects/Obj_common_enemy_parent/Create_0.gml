@@ -9,6 +9,7 @@ ignoreGrav = false;
 
 canAttack = true;
 attackCooldown = 90;
+attackFrameNum = 1;
 
 
 targetX = x;

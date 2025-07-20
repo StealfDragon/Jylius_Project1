@@ -65,14 +65,14 @@ switch(state) {
     
     case (COM_ENEMY_STATES.ATTACKING):
         //attacking sprite (set by child but implemented here)
-        if (dir <= 0) {
-            changeSprite(Prison_Guard);
-            image_xscale = -1;
-        }
-        else if (dir == 1){
-            changeSprite(Prison_Guard);
-            image_xscale = 1;
-        }
+        //if (dir <= 0) {
+            //changeSprite(Prison_Guard);
+            //image_xscale = -1;
+        //}
+        //else if (dir == 1){
+            //changeSprite(Prison_Guard);
+            //image_xscale = 1;
+        //}
         
         //if (image_index == sprite_get_number((Prison_Guard))) {
             //state = COM_ENEMY_STATES.CHASING;

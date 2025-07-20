@@ -71,14 +71,14 @@ switch(state) {
         show_debug_message("in attacking state");
         attackFrameNum++;
         //attacking sprite (set by child but implemented here)
-        if (dir == -1) {
-            changeSprite(Com_Enemy_Temp_Atk);
-            image_xscale = -1;
-        }
-        else if (dir == 1){
-            changeSprite(Com_Enemy_Temp_Atk);
-            image_xscale = 1;
-        }
+        //if (dir == -1) {
+            //changeSprite(Com_Enemy_Temp_Atk);
+            //image_xscale = -1;
+        //}
+        //else if (dir == 1){
+            //changeSprite(Com_Enemy_Temp_Atk);
+            //image_xscale = 1;
+        //}
         
         if (image_index == sprite_get_number(Com_Enemy_Temp_Atk)) {
             alarm[1] = attackCooldown;

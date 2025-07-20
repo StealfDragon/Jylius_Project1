@@ -59,6 +59,7 @@
     {"id":{"name":"Com_Enemy_Temp_Chase","path":"sprites/Com_Enemy_Temp_Chase/Com_Enemy_Temp_Chase.yy",},},
     {"id":{"name":"Com_Enemy_Temp","path":"sprites/Com_Enemy_Temp/Com_Enemy_Temp.yy",},},
     {"id":{"name":"Prison_Guard","path":"sprites/Prison_Guard/Prison_Guard.yy",},},
+    {"id":{"name":"Spr_Baton_Rotating","path":"sprites/Spr_Baton_Rotating/Spr_Baton_Rotating.yy",},},
     {"id":{"name":"Spr_Baton","path":"sprites/Spr_Baton/Spr_Baton.yy",},},
     {"id":{"name":"Sprite5","path":"sprites/Sprite5/Sprite5.yy",},},
     {"id":{"name":"Sprite6","path":"sprites/Sprite6/Sprite6.yy",},},

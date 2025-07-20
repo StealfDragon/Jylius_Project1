@@ -23,7 +23,7 @@
   ],
   "name":"Prison_Guard",
   "nineSlice":null,
-  "origin":0,
+  "origin":1,
   "parent":{
     "name":"Enemy Animations",
     "path":"folders/Sprites/Enemy Animations.yy",
@@ -77,7 +77,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
+    "xorigin":16,
     "yorigin":0,
   },
   "swatchColours":null,

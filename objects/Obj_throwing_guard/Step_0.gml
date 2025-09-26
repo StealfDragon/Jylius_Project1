@@ -17,19 +17,18 @@ switch(state) {
     
     case (COM_ENEMY_STATES.PATROLLING):
         //patrol sprite (set by child but implemented here)
-        //if (dir <= 0) {
-            //changeSprite(Com_Enemy_Temp);
-            //image_xscale = -1;
-        //}
-        //else if (dir == 1){
-            //changeSprite(Com_Enemy_Temp);
-            //image_xscale = 1;
-        //}
+        if (dir <= 0) {
+            image_xscale = -1;
+        }
+        else if (dir == 1){
+            image_xscale = 1;
+        }
     
         //implement path stuff upon new branch
         //also implement moving back to patrol position
         
-        alarm[0] = 30;
+        
+        alarm[0] = 30; 
     
         if (distance_to_object(Obj_player) < aggroDist) and (instance_exists(Obj_player)) { //if player is within aggro distance, switch to chasing state
             state = COM_ENEMY_STATES.CHASING;
@@ -56,7 +55,7 @@ switch(state) {
         }
             
     
-        //x += clamp(targetX - x, -moveSpd, moveSpd);
+        x += clamp(targetX - x, -moveSpd, moveSpd);
     
         moveDir = sign(targetX - x)
         dir = -sign(targetX - x)
@@ -65,14 +64,14 @@ switch(state) {
     
     case (COM_ENEMY_STATES.ATTACKING):
         //attacking sprite (set by child but implemented here)
-        //if (dir <= 0) {
-            //changeSprite(Prison_Guard);
-            //image_xscale = -1;
-        //}
-        //else if (dir == 1){
-            //changeSprite(Prison_Guard);
-            //image_xscale = 1;
-        //}
+        if (dir <= 0) {
+            changeSprite(Prison_Guard);
+            image_xscale = -1;
+        }
+        else if (dir == 1){
+            changeSprite(Prison_Guard);
+            image_xscale = 1;
+        }
         
         //if (image_index == sprite_get_number((Prison_Guard))) {
             //state = COM_ENEMY_STATES.CHASING;
@@ -80,6 +79,10 @@ switch(state) {
             //canAttack = false;
         //}
     
+        if canAttack {
+            throwBaton();
+        }
+        
         dir = -sign(targetX - x)
         if (distance_to_object(Obj_player) > stopAttackDist) {
             state = COM_ENEMY_STATES.CHASING;
@@ -104,4 +107,12 @@ function changeSprite(spr) {
     if sprite_index != spr {
         sprite_index = spr;
     } 
+}
+
+
+function throwBaton() {
+    var baton = instance_create_layer(x, y+25, "Instances", Obj_baton_spinning, {xdirection: -dir, originX: x, target_id: other.id});
+    alarm[1] = attackCooldown;
+    canAttack = false;
+    
 }

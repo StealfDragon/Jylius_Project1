@@ -23,6 +23,7 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"Obj_baton_spinning","order":7,"path":"objects/Obj_baton_spinning/Obj_baton_spinning.yy",},
     {"name":"Obj_baton","order":6,"path":"objects/Obj_baton/Obj_baton.yy",},
     {"name":"Obj_common_enemy_parent","order":2,"path":"objects/Obj_common_enemy_parent/Obj_common_enemy_parent.yy",},
     {"name":"Obj_door","order":4,"path":"objects/Obj_door/Obj_door.yy",},
@@ -30,6 +31,7 @@
     {"name":"Obj_prison_guard","order":3,"path":"objects/Obj_prison_guard/Obj_prison_guard.yy",},
     {"name":"Obj_siren","order":2,"path":"objects/Obj_siren/Obj_siren.yy",},
     {"name":"Obj_throwing_guard","order":5,"path":"objects/Obj_throwing_guard/Obj_throwing_guard.yy",},
+    {"name":"TestingRoom","order":1,"path":"rooms/TestingRoom/TestingRoom.yy",},
     {"name":"Apply_Grav","order":2,"path":"scripts/Apply_Grav/Apply_Grav.yy",},
     {"name":"Global_Vars","order":1,"path":"scripts/Global_Vars/Global_Vars.yy",},
     {"name":"Place_Meeting_Collidables","order":2,"path":"scripts/Place_Meeting_Collidables/Place_Meeting_Collidables.yy",},
@@ -37,6 +39,7 @@
     {"name":"Com_Enemy_Temp_Chase","order":2,"path":"sprites/Com_Enemy_Temp_Chase/Com_Enemy_Temp_Chase.yy",},
     {"name":"Prison_Guard","order":4,"path":"sprites/Prison_Guard/Prison_Guard.yy",},
     {"name":"Spr_Baton_Rotating","order":3,"path":"sprites/Spr_Baton_Rotating/Spr_Baton_Rotating.yy",},
+    {"name":"Spr_Baton_Spinning","order":6,"path":"sprites/Spr_Baton_Spinning/Spr_Baton_Spinning.yy",},
     {"name":"Spr_Baton","order":5,"path":"sprites/Spr_Baton/Spr_Baton.yy",},
     {"name":"Sprite5","order":1,"path":"sprites/Sprite5/Sprite5.yy",},
     {"name":"Sprite6","order":4,"path":"sprites/Sprite6/Sprite6.yy",},

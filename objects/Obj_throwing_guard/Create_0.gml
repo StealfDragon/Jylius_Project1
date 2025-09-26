@@ -2,17 +2,21 @@ hp = 20;
 moveSpd = 3.3;
 aggroDist = 250;
 loseAggroDist = aggroDist + 50;
-attackDist = 5;
-stopAttackDist = 50;
-canPatrol = false;
+attackDist = 150;
+stopAttackDist = 180;
+canPatrol = true;
 ignoreGrav = false;
 
 canAttack = true;
 attackCooldown = 90;
 attackFrameNum = 1;
 
+if (instance_exists(Obj_player)) {
+    targetX = Obj_player.x;
+} else {
+    targetX = x;
+}
 
-targetX = x;
 
 moveDir = 0;
 dir = 1;

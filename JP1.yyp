@@ -41,6 +41,7 @@
   },
   "name":"JP1",
   "resources":[
+    {"id":{"name":"Obj_baton_spinning","path":"objects/Obj_baton_spinning/Obj_baton_spinning.yy",},},
     {"id":{"name":"Obj_baton","path":"objects/Obj_baton/Obj_baton.yy",},},
     {"id":{"name":"Obj_common_enemy_parent","path":"objects/Obj_common_enemy_parent/Obj_common_enemy_parent.yy",},},
     {"id":{"name":"Obj_door","path":"objects/Obj_door/Obj_door.yy",},},
@@ -51,6 +52,7 @@
     {"id":{"name":"Obj_siren","path":"objects/Obj_siren/Obj_siren.yy",},},
     {"id":{"name":"Obj_throwing_guard","path":"objects/Obj_throwing_guard/Obj_throwing_guard.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"TestingRoom","path":"rooms/TestingRoom/TestingRoom.yy",},},
     {"id":{"name":"Apply_Grav","path":"scripts/Apply_Grav/Apply_Grav.yy",},},
     {"id":{"name":"Enumerators","path":"scripts/Enumerators/Enumerators.yy",},},
     {"id":{"name":"Global_Vars","path":"scripts/Global_Vars/Global_Vars.yy",},},
@@ -60,6 +62,7 @@
     {"id":{"name":"Com_Enemy_Temp","path":"sprites/Com_Enemy_Temp/Com_Enemy_Temp.yy",},},
     {"id":{"name":"Prison_Guard","path":"sprites/Prison_Guard/Prison_Guard.yy",},},
     {"id":{"name":"Spr_Baton_Rotating","path":"sprites/Spr_Baton_Rotating/Spr_Baton_Rotating.yy",},},
+    {"id":{"name":"Spr_Baton_Spinning","path":"sprites/Spr_Baton_Spinning/Spr_Baton_Spinning.yy",},},
     {"id":{"name":"Spr_Baton","path":"sprites/Spr_Baton/Spr_Baton.yy",},},
     {"id":{"name":"Sprite5","path":"sprites/Sprite5/Sprite5.yy",},},
     {"id":{"name":"Sprite6","path":"sprites/Sprite6/Sprite6.yy",},},
@@ -98,6 +101,7 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"TestingRoom","path":"rooms/TestingRoom/TestingRoom.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "templateType":"game",

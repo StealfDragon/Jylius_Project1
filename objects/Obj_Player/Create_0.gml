@@ -36,4 +36,4 @@ dir = 1;
 whipStart = false;
 whippable = true;
 whipCount = 1;
-whipBuffer = 0;
+whipBuffer = 5;

@@ -29,6 +29,7 @@
     {"name":"Obj_door","order":4,"path":"objects/Obj_door/Obj_door.yy",},
     {"name":"Obj_lighting","order":1,"path":"objects/Obj_lighting/Obj_lighting.yy",},
     {"name":"Obj_prison_guard","order":3,"path":"objects/Obj_prison_guard/Obj_prison_guard.yy",},
+    {"name":"Obj_projectile","order":8,"path":"objects/Obj_projectile/Obj_projectile.yy",},
     {"name":"Obj_siren","order":2,"path":"objects/Obj_siren/Obj_siren.yy",},
     {"name":"Obj_throwing_guard","order":5,"path":"objects/Obj_throwing_guard/Obj_throwing_guard.yy",},
     {"name":"TestingRoom","order":1,"path":"rooms/TestingRoom/TestingRoom.yy",},

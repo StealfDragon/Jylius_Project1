@@ -49,6 +49,7 @@
     {"id":{"name":"Obj_lighting","path":"objects/Obj_lighting/Obj_lighting.yy",},},
     {"id":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},},
     {"id":{"name":"Obj_prison_guard","path":"objects/Obj_prison_guard/Obj_prison_guard.yy",},},
+    {"id":{"name":"Obj_projectile","path":"objects/Obj_projectile/Obj_projectile.yy",},},
     {"id":{"name":"Obj_siren","path":"objects/Obj_siren/Obj_siren.yy",},},
     {"id":{"name":"Obj_throwing_guard","path":"objects/Obj_throwing_guard/Obj_throwing_guard.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},

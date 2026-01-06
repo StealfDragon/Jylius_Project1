@@ -3,3 +3,5 @@ if xdirection == 0 {
 }
 xspd = xdirection * (10);
 targetX = x;
+
+damage = 20;

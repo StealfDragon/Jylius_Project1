@@ -1,21 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_baton_spinning",
+  "%Name":"Obj_projectile",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Obj_baton_spinning",
+  "name":"Obj_projectile",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
     "path":"folders/Objects.yy",
   },
-  "parentObjectId":{
-    "name":"Obj_projectile",
-    "path":"objects/Obj_projectile/Obj_projectile.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -33,10 +30,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"Spr_Baton_Spinning",
-    "path":"sprites/Spr_Baton_Spinning/Spr_Baton_Spinning.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

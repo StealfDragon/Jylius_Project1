@@ -13,7 +13,8 @@ enum PLAYER_STATES {
     ATTACK_COMBO,
     SHOOT,
     BLOCK,
-    PARRY
+    PARRY,
+    STUN
 }
 
 enum COM_ENEMY_STATES {

@@ -37,3 +37,6 @@ whipStart = false;
 whippable = true;
 whipCount = 1;
 whipBuffer = 5;
+
+HP = 100;
+damageable = true;

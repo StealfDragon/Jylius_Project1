@@ -426,6 +426,9 @@ switch(attackState) {
     case(PLAYER_STATES.PARRY):
         
     break;
+    case(PLAYER_STATES.STUN):
+        
+    break;
 }
 
 
@@ -495,4 +498,13 @@ function Horiz_Movement() {//x, y, xspd, yspd, tilemap, moveSpd, moveDir, stepHe
     
     //Move
     x += xspd;    
+}
+
+function takeDamage(damage, direction) {
+    HP -= damage;
+    xspd += direction;
+    
+    damageable = false;
+    alarm[3] = 20;
+    //show_debug_message("Took " + damage + " damage!");
 }
